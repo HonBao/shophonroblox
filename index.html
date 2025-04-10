@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="vi"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHOP HON ROBLOX</title>
@@ -144,7 +147,7 @@
             <select id="service-select" onchange="showDetails()" required>
                 <option value="">-- Chọn Gói --</option>
                 <option value="50000"><strong>1 trứng + 5 xương (yêu cầu có sẵn 8 đai) - 50,000 ₫</strong></option>
-                <option value="40000"><strong>10 Xương Dinosaur Bones - 40,000 ₫</strong></option>
+                 <option value="40000"><strong>10 Xương Dinosaur Bones - 40,000 ₫</strong></option>
                 <option value="50000"><strong>đánh boss Rip_Indra (yêu cầu lv trên 1500) - 50,000 ₫</strong></option>
                 <option value="800000"><strong>200m beli (yêu cầu lv trên 1500 có x2 beli là 400m) - 800,000 ₫</strong></option>
                 <option value="400000"><strong>100m beli (yêu cầu lv trên 1500 có x2 beli là 200m) - 400,000 ₫</strong></option>
@@ -218,7 +221,46 @@
             <button type="submit" class="submit-button">Tạo Đơn Hàng</button>
         </form>
     </div>
-            <!-- Modal -->
+
+    <!-- Mục Bán Trái Ác Quỷ Rương -->
+    <div class="form-section">
+        <h2>Trái Ác Quỷ Rương</h2>
+        
+        <form id="devil-fruit-form" onsubmit="sendDevilFruitOrder(event)">
+            <select id="fruit-select" onchange="showFruitDetails()" required>
+                <option value="">-- Chọn Trái Ác Quỷ --</option>
+                <option value="120000"><strong>Trái Kitsune - 120,000 ₫</strong></option>
+                <option value="90000"><strong>Trái Leopard - 90,000 ₫</strong></option>
+                <option value="60000"><strong>Trái Mochi - 60,000 ₫</strong></option>
+                <option value="30000"><strong>Trái Mammoth - 30,000 ₫</strong></option>
+                <option value="25000"><strong>Trái Sound - 25,000 ₫</strong></option>
+                <option value="40000"><strong>Trái Spirit - 40,000 ₫</strong></option>
+                <option value="40000"><strong>Trái Control - 40,000 ₫</strong></option>
+                <option value="40000"><strong>Trái Venom - 40,000 ₫</strong></option>
+                <option value="40000"><strong>Trái Shadow - 40,000 ₫</strong></option>
+                <option value="40000"><strong>Trái Phật - 40,000 ₫</strong></option>
+                <option value="20000"><strong>Trái Gravity - 20,000 ₫</strong></option>                
+                <option value="20000"><strong>Trái Rumble - 20,000 ₫</strong></option>
+                <option value="20000"><strong>Trái Portal - 20,000 ₫</strong></option>
+                <option value="15000"><strong>Trái Phoenix - 15,000 ₫</strong></option>
+                <option value="15000"><strong>Trái Love - 15,000 ₫</strong></option>                
+                <option value="50000"><strong>Trái T-Rex - 50,000 ₫</strong></option>
+                <option value="90000"><strong>Trái Gas - 90,000 ₫</strong></option>
+                <!-- Thêm các lựa chọn khác tại đây -->
+            </select>
+            <div id="fruit-details" style="margin-top: 20px;">
+                <p id="fruit-info" class="service-info"></p>
+            </div>
+
+            <div class="total-amount">
+                <p id="fruit-amount-display">0 ₫</p>
+            </div>
+
+            <button type="submit" class="submit-button">Mua Trái</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <h2>Thông Tin Nạp Tiền</h2>
@@ -273,6 +315,39 @@
             alert('Có lỗi xảy ra khi sao chép: ', err);
         });
     }
+
+    function showFruitDetails() {
+        const select = document.getElementById('fruit-select');
+        const details = document.getElementById('fruit-info');
+        const amountDisplay = document.getElementById('fruit-amount-display');
+
+        if (select.value) {
+            details.innerText = select.options[select.selectedIndex].text;
+            const priceText = select.value;
+            amountDisplay.innerText = `${parseInt(priceText).toLocaleString()} ₫`;
+        } else {
+            details.innerText = '';
+            amountDisplay.innerText = '0 ₫';
+        }
+    }
+
+    function sendDevilFruitOrder(event) {
+        event.preventDefault();
+
+        const selectedFruit = document.getElementById('fruit-select').value;
+        const fruitText = document.getElementById('fruit-info').innerText;
+
+        let message = `Trái Ác Quỷ: ${fruitText}`;
+
+        // Tự động sao chép thông tin vào clipboard
+        navigator.clipboard.writeText(message).then(() => {
+            alert("Thông tin đã được sao chép vào clipboard! Bạn có thể mở Messenger và dán vào để gửi.");
+            // Mở Messenger
+            window.open('https://www.messenger.com/t/100022072310809?locale=vi_VN', '_blank');
+        }).catch(err => {
+            alert('Có lỗi xảy ra khi sao chép: ', err);
+        });
+    }
 </script>
 
 <div class="contact-buttons">
@@ -287,6 +362,5 @@
     </a>
 </div>
 
-
-
-</body></html>
+</body>
+</html>
