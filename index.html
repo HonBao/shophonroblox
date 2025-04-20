@@ -20,6 +20,7 @@
             text-align: center;
         }
         nav {
+            display: none; /* Ẩn thanh điều hướng */
             margin: 20px 0;
         }
         nav a {
@@ -71,9 +72,15 @@
             font-size: 20px; /* Kích thước chữ */
             margin: 0; /* Không có khoảng cách */
         }
+        .submit-button-container {
+            display: flex;
+            flex-direction: column; /* Hiển thị các phần tử con theo chiều dọc */
+            justify-content: center; /* Canh giữa theo chiều dọc (trong trường hợp có không gian thừa) */
+            align-items: center; /* Canh giữa theo chiều ngang */
+            gap: 10px; /* Khoảng cách giữa nút và ghi chú */
+            margin-top: 10px; /* Thêm khoảng cách phía trên */
+        }
         .submit-button {
-            display: block;
-            width: auto; /* Đặt chiều rộng nút nhỏ lại */
             padding: 8px 16px; /* Điều chỉnh padding */
             background-color: #4CAF50;
             color: white;
@@ -81,10 +88,15 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px; /* Kích thước chữ nhỏ hơn */
-            margin: 0 auto; /* Canh giữa nút */
+            width: auto; /* Để nút có chiều rộng vừa đủ nội dung */
         }
         .submit-button:hover {
             background-color: #45a049;
+        }
+        .button-note {
+            color: red; /* Đổi màu chữ thành đỏ */
+            font-size: 12px; /* Kích thước chữ nhỏ hơn cho ghi chú */
+            text-align: center; /* Canh giữa dòng chữ */
         }
         .contact-buttons {
             position: fixed;
@@ -129,28 +141,29 @@
 <header>
     <h1>SHOP HON ROBLOX</h1>
     <h2>Cày Thuê Siêu Tốc</h2>
-    <nav>
-        <a href="#">Trang Chủ</a>
-        <a href="#">Lịch Sử Mua Nick</a>
-        <a href="#">Dịch Vụ Khác</a>
-        <a href="#">Tài Khoản</a>
-        <a href="#">Nạp Tiền</a>
-        <a href="#">Liên Hệ</a>
-    </nav>
 </header>
+
+<nav>
+    <a href="#">Trang Chủ</a>
+    <a href="#">Lịch Sử Mua Nick</a>
+    <a href="#">Dịch Vụ Khác</a>
+    <a href="#">Tài Khoản</a>
+    <a href="#">Nạp Tiền</a>
+    <a href="#">Liên Hệ</a>
+</nav>
 
 <div class="container">
     <div class="form-section">
         <h2>Chọn Gói Dịch Vụ</h2>
-        
+
         <form id="order-form" onsubmit="sendOrder(event)">
             <select id="service-select" onchange="showDetails()" required>
                 <option value="">-- Chọn Gói --</option>
-                <option value="80000"><strong>thức tỉnh Gravity V2 (yêu cầu 500 Mastery) - 80,000 ₫</strong></option>
-                <option value="50000"><strong>đánh boss Tryrant of the Skies - 50,000 ₫</strong></option>
+                <option value="80000"><strong>Thức tỉnh Gravity V2 (yêu cầu 500 Mastery) - 80,000 ₫</strong></option>
+                <option value="50000"><strong>Đánh boss Tryrant of the Skies - 50,000 ₫</strong></option>
                 <option value="50000"><strong>1 trứng + 5 xương (yêu cầu có sẵn 8 đai) - 50,000 ₫</strong></option>
                 <option value="40000"><strong>10 Xương Dinosaur Bones - 40,000 ₫</strong></option>
-                <option value="50000"><strong>đánh boss Rip_Indra (yêu cầu lv trên 1500) - 50,000 ₫</strong></option>
+                <option value="50000"><strong>Đánh boss Rip_Indra (yêu cầu lv trên 1500) - 50,000 ₫</strong></option>
                 <option value="800000"><strong>200m beli (yêu cầu lv trên 1500 có x2 beli là 400m) - 800,000 ₫</strong></option>
                 <option value="400000"><strong>100m beli (yêu cầu lv trên 1500 có x2 beli là 200m) - 400,000 ₫</strong></option>
                 <option value="200000"><strong>50m beli (yêu cầu lv trên 1500 có x2 beli là 100m) - 200,000 ₫</strong></option>
@@ -192,8 +205,8 @@
                 <option value="70000"><strong>Dragon storm (yêu cầu có sẵn 8 đai) - 70,000 ₫</strong></option>
                 <option value="40000"><strong>Dragon heart (yêu cầu có sẵn 8 đai) - 40,000 ₫</strong></option>
                 <option value="100000"><strong>Tam kiếm a-z (yêu cầu lv trên 1500+ đủ 6m beli) - 100,000 ₫</strong></option>
-                <option value="60000"><strong>Mảnh gương (yêu cầu lv trên 1500) - 60,000 ₫</strong></option>   
-            </select>
+                <option value="60000"><strong>Mảnh gương (yêu cầu lv trên 1500) - 60,000 ₫</strong></option>
+                </select>
             <div id="service-details" style="margin-top: 20px;">
                 <p id="details" class="service-info"></p>
             </div>
@@ -220,14 +233,16 @@
                 <p id="amount-display">0 ₫</p>
             </div>
 
-            <button type="submit" class="submit-button">Tạo Đơn Hàng</button>
+            <div class="submit-button-container">
+                <button type="submit" class="submit-button">Tạo Đơn Hàng</button>
+                <p class="button-note">( Bạn bấm OK để được chuyển tiếp đến Messenger của Shop, sau đó bạn Dán và Enter để gửi thông tin gói cần cày cho Shop nha, mình cảm ơn bạn đã ủng hộ Shop )</p>
+            </div>
         </form>
     </div>
 
-    <!-- Mục Bán Trái Ác Quỷ Rương -->
     <div class="form-section">
         <h2>Trái Ác Quỷ Rương</h2>
-        
+
         <form id="devil-fruit-form" onsubmit="sendDevilFruitOrder(event)">
             <select id="fruit-select" onchange="showFruitDetails()" required>
                 <option value="">-- Chọn Trái Ác Quỷ --</option>
@@ -245,8 +260,7 @@
                 <option value="20000"><strong>Trái Portal - 20,000 ₫</strong></option>                
                 <option value="30000"><strong>Trái T-Rex - 30,000 ₫</strong></option>
                 <option value="60000"><strong>Trái Gas - 60,000 ₫</strong></option>
-                <!-- Thêm các lựa chọn khác tại đây -->
-            </select>
+                </select>
             <div id="fruit-details" style="margin-top: 20px;">
                 <p id="fruit-info" class="service-info"></p>
             </div>
@@ -255,11 +269,13 @@
                 <p id="fruit-amount-display">0 ₫</p>
             </div>
 
-            <button type="submit" class="submit-button">Mua Trái</button>
+            <div class="submit-button-container">
+                <button type="submit" class="submit-button">Mua Trái</button>
+                <p class="button-note">( Bạn bấm OK để được chuyển tiếp đến Messenger của Shop, sau đó bạn Dán và Enter để gửi thông tin Trái muốn mua cho Shop nha, mình cảm ơn bạn đã ủng hộ Shop )</p>
+            </div>
         </form>
     </div>
 
-    <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <h2>Thông Tin Nạp Tiền</h2>
